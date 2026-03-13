@@ -71,8 +71,8 @@ export class ProductsService {
             data: {
                 name: data.name,
                 description: data.description || 'No description provided.',
-                priceRange: data.price,
-                minOrderQuantity: parseInt(data.minOrder) || 1,
+                priceRange: data.price || data.priceRange || 'Contact for price',
+                minOrderQuantity: data.stock !== undefined ? parseInt(data.stock) : (parseInt(data.minOrder) || 1),
                 originCountry: 'India',
                 images: JSON.stringify([data.image]),
                 categoryId: category.id,
